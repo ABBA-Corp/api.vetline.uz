@@ -160,3 +160,7 @@ SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa F405
 ]
 # Your stuff...
 # ------------------------------------------------------------------------------
+STATIC_ROOT = env("DJANGO_STATIC")
+# MEDIA
+# ------------------------------------------------------------------------------
+MEDIA_ROOT = env("DJANGO_MEDIA")
