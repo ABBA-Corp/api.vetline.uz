@@ -33,7 +33,7 @@ class ProductCategoryListView(mixins.ListModelMixin,
     serializer_class = ProductCategorySerializer
 
 
-class ProductBannerListView(mixins.ListModelMixin,
-                            GenericViewSet):
+class ProductResultsListView(mixins.ListModelMixin,
+                             GenericViewSet):
     queryset = Results.objects.all()
     serializer_class = ProductResultSerializer
