@@ -40,4 +40,4 @@ jobs:
           /home/backend/vetline/venv/bin/pip install -r /home/backend/vetline/requirements/production.txt
           /home/backend/vetline/venv/bin/python /home/backend/vetline/manage_prod.py migrate
           systemctl restart vetline.service
-          sh /home/devops/orzu_back.sh "${{ github.event.head_commit.message }}"
+          sh /home/devops/vetline_back.sh "${{ github.event.head_commit.message }}"
