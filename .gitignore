@@ -329,3 +329,4 @@ dump.rdb
 vetline/media/
 
 .pytest_cache/
+.env
