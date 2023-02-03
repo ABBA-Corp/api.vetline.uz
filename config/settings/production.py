@@ -164,3 +164,8 @@ STATIC_ROOT = env("DJANGO_STATIC")
 # MEDIA
 # ------------------------------------------------------------------------------
 MEDIA_ROOT = env("DJANGO_MEDIA")
+# SPECTACULAR_SETTINGS["SERVE_PERMISSIONS"] = ["rest_framework.permissions.IsAdminUser"]
+REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
+    'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+]
+
