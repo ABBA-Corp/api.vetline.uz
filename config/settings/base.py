@@ -321,7 +321,12 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Documentation of API endpoints of API Vetline.uz",
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
+    "CAMELIZE_NAMES": True,
+    "POSTPROCESSING_HOOKS": ["drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields"]
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
 THUMBNAIL_QUALITY = 70
+JSON_CAMEL_CASE = {
+    'RENDERER_CLASS': 'rest_framework.renderers.JSONRenderer'
+}

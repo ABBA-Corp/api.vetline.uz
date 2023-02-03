@@ -19,7 +19,8 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+from djangorestframework_camel_case.render import CamelCaseJSONRenderer
+from rest_framework.renderers import TemplateHTMLRenderer
 # API URLS
 urlpatterns += [
     # API base url
@@ -29,7 +30,8 @@ urlpatterns += [
     path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),
     path(
         "api/docs/",
-        SpectacularSwaggerView.as_view(url_name="api-schema"),
+        SpectacularSwaggerView.as_view(url_name="api-schema",
+                                       renderer_classes=[TemplateHTMLRenderer, CamelCaseJSONRenderer]),
         name="api-docs",
     ),
 ]

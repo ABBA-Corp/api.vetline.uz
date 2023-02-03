@@ -1,7 +1,17 @@
 from rest_framework import serializers
 from sorl.thumbnail import get_thumbnail
+from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 
 from .models import Product, ProductCategory, Results
+
+
+class ThumbnailSerializer(serializers.Serializer):
+    thumbnail = HyperlinkedSorlImageField(
+        '500x500',
+        options={"format": "PNG"},
+        source='photo',
+        read_only=True
+    )
 
 
 class ProductCategorySerializer(serializers.ModelSerializer):
@@ -10,23 +20,11 @@ class ProductCategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ProductListSerializer(serializers.ModelSerializer):  # noqa
-    thumbnail_photo = serializers.SerializerMethodField()  # noqa
+class ProductListSerializer(ThumbnailSerializer, serializers.ModelSerializer):  # noqa
 
     class Meta:
         model = Product
         fields = "__all__"
-
-    def get_thumbnail_photo(self, obj):
-        height = self.context['request'].GET.get('height', '500')  # noqa
-        width = self.context['request'].GET.get('width', '500')
-        img_format = self.context['request'].GET.get('format', 'PNG')
-        quality = self.context['request'].GET.get('quality', 50)
-        thumbnail = get_thumbnail(obj.photo, f'{width}x{height}', quality=int(quality), format=img_format.upper())
-        return {
-            "size": thumbnail.size,
-            "url": self.context['request'].build_absolute_uri(thumbnail.url),
-        }
 
 
 class ProductResultSerializer(serializers.ModelSerializer):
@@ -35,21 +33,9 @@ class ProductResultSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ProductDetailSerializer(serializers.ModelSerializer):  # noqa
-    thumbnail_photo = serializers.SerializerMethodField()  # noqa
+class ProductDetailSerializer(ThumbnailSerializer, serializers.ModelSerializer):  # noqa
     results_set = ProductResultSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
         fields = "__all__"
-
-    def get_thumbnail_photo(self, obj):
-        height = self.context['request'].GET.get('height', '500')  # noqa
-        width = self.context['request'].GET.get('width', '500')
-        img_format = self.context['request'].GET.get('format', 'PNG')
-        quality = self.context['request'].GET.get('quality', 50)
-        thumbnail = get_thumbnail(obj.photo, f'{width}x{height}', quality=int(quality), format=img_format.upper())
-        return {
-            "size": thumbnail.size,
-            "url": self.context['request'].build_absolute_uri(thumbnail.url),
-        }

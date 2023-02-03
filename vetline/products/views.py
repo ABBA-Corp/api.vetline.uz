@@ -9,12 +9,6 @@ from .serializers import (
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-    """
-    Поддерживаемые дополнительные параметры для изображений
-    height: указывайте размер в пикселях для изображений
-    width: указывайте размер в пикселях для изображений
-    format: PNG, JPEG для того чтобы конвертировать изображения
-    """
     queryset = Product.objects.select_related("category")
     list_serializer_class = ProductListSerializer
     serializer_class = ProductDetailSerializer
