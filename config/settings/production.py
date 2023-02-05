@@ -169,3 +169,4 @@ REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
     'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
