@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from sorl.thumbnail import get_thumbnail
 from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 
 from .models import Product, ProductCategory, Results

@@ -296,19 +296,19 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    'DEFAULT_RENDERER_CLASSES': (
-            'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
-            'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
-            # Any other renders
-        ),
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #         'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+    #         'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+    #         # Any other renders
+    #     ),
 
-    'DEFAULT_PARSER_CLASSES': (
-        # If you use MultiPartFormParser or FormParser, we also have a camel case version
-        'djangorestframework_camel_case.parser.CamelCaseFormParser',
-        'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
-        'djangorestframework_camel_case.parser.CamelCaseJSONParser',
-        # Any other parsers
-    ),
+    # 'DEFAULT_PARSER_CLASSES': (
+    #     # If you use MultiPartFormParser or FormParser, we also have a camel case version
+    #     'djangorestframework_camel_case.parser.CamelCaseFormParser',
+    #     'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
+    #     'djangorestframework_camel_case.parser.CamelCaseJSONParser',
+    #     # Any other parsers
+    # ),
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
@@ -321,12 +321,12 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Documentation of API endpoints of API Vetline.uz",
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
-    "CAMELIZE_NAMES": True,
-    "POSTPROCESSING_HOOKS": ["drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields"]
+    # "CAMELIZE_NAMES": True,
+    # "POSTPROCESSING_HOOKS": ["drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields"]
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
 THUMBNAIL_QUALITY = 70
-JSON_CAMEL_CASE = {
-    'RENDERER_CLASS': 'rest_framework.renderers.JSONRenderer'
-}
+# JSON_CAMEL_CASE = {
+#     'RENDERER_CLASS': 'rest_framework.renderers.JSONRenderer'
+# }

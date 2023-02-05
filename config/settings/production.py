@@ -165,8 +165,8 @@ STATIC_ROOT = env("DJANGO_STATIC")
 # ------------------------------------------------------------------------------
 MEDIA_ROOT = env("DJANGO_MEDIA")
 # SPECTACULAR_SETTINGS["SERVE_PERMISSIONS"] = ["rest_framework.permissions.IsAdminUser"]
-REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
-    'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
-]
-
+# REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
+#     'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+# ]
+REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = ("rest_framework.renderers.JSONRenderer",) # noqa F405
 CORS_ALLOW_ALL_ORIGINS = True
