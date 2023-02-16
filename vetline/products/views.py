@@ -31,3 +31,4 @@ class ProductResultsListView(mixins.ListModelMixin,
                              GenericViewSet):
     queryset = Results.objects.all()
     serializer_class = ProductResultSerializer
+    filterset_fields = ["product_id"]
