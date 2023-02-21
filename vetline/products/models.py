@@ -56,12 +56,12 @@ class ProductCategory(models.Model):
 class Results(models.Model):
     product = models.ForeignKey(Product, verbose_name=_('Продукт'), on_delete=models.CASCADE)
     photo = ImageField(_("Изображение"), upload_to=get_results_path)
-    title_uz = models.CharField(_("Заголовок"), max_length=255)
-    title_ru = models.CharField(_("Заголовок"), max_length=255)
-    title_en = models.CharField(_("Заголовок"), max_length=255)
-    subtitle_uz = models.CharField(_("Подзаголовок"), max_length=255)
-    subtitle_ru = models.CharField(_("Подзаголовок"), max_length=255)
-    subtitle_en = models.CharField(_("Подзаголовок"), max_length=255)
+    title_uz = models.CharField(_("Заголовок uz"), max_length=255)
+    title_ru = models.CharField(_("Заголовок ru"), max_length=255, null=True, blank=True)
+    title_en = models.CharField(_("Заголовок en"), max_length=255, null=True, blank=True)
+    subtitle_uz = models.CharField(_("Подзаголовок uz"), max_length=255)
+    subtitle_ru = models.CharField(_("Подзаголовок ru"), max_length=255, null=True, blank=True)
+    subtitle_en = models.CharField(_("Подзаголовок en"), max_length=255, null=True, blank=True)
 
     class Meta:
         verbose_name = _("Результат")
