@@ -9,7 +9,7 @@ class ResultsInline(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ["name_uz", "subtitle_uz", "is_top"]
+    list_display = ["name_uz", "subtitle_uz", "is_top", "category"]
     inlines = [ResultsInline]
     list_editable = ['is_top']
 
