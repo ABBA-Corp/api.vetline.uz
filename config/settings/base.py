@@ -90,6 +90,7 @@ LOCAL_APPS = [
     "vetline.users",
     # Your stuff: custom apps go here
     "vetline.products",
+    "vetline.faqs",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
