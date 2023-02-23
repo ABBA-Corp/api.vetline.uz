@@ -7,5 +7,5 @@ from vetline.faqs.serializers import FaqSerializer
 
 class FaqViewset(mixins.ListModelMixin,
                  GenericViewSet):
-    queryset = Faqs.objects.all()
+    queryset = Faqs.objects.all().order_by('order')
     serializer_class = FaqSerializer
