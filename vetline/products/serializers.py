@@ -38,10 +38,3 @@ class ProductDetailSerializer(ThumbnailSerializer, serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
-
-    def to_representation(self, instance):
-        x = super().to_representation(instance)
-        if not x['results_set']:
-            x['results_set'] = Results.objects.filter(
-                product__category=instance.category).values()
-        return x

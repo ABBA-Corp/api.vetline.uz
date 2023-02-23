@@ -20,6 +20,13 @@ class ProductViewSet(viewsets.ModelViewSet):
             return self.list_serializer_class
         return self.serializer_class
 
+    def get_object(self):
+        obj = super().get_object()
+        if obj.results_set.count() == 0:
+            obj.results_set.set(Results.objects.filter(
+                product__category=obj.category))
+        return obj
+
 
 class ProductCategoryListView(mixins.ListModelMixin,
                               GenericViewSet):
