@@ -17,3 +17,14 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(ProductCategory)
 class ProductCategoryAdmin(admin.ModelAdmin):
     list_display = ["title_uz"]
+
+
+@admin.register(Results)
+class ResultsAdmin(admin.ModelAdmin):
+    list_display = ["thumbnail_preview", "product", "title_uz", "subtitle_uz"]
+
+    def thumbnail_preview(self, obj):
+        return obj.thumbnail_preview
+
+    thumbnail_preview.short_description = 'Фото'
+    thumbnail_preview.allow_tags = True

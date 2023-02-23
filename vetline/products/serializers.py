@@ -26,7 +26,7 @@ class ProductListSerializer(ThumbnailSerializer, serializers.ModelSerializer):  
         fields = "__all__"
 
 
-class ProductResultSerializer(serializers.ModelSerializer):
+class ProductResultSerializer(ThumbnailSerializer, serializers.ModelSerializer):
     class Meta:
         model = Results
         fields = "__all__"

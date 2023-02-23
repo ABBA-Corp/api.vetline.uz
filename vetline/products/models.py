@@ -70,7 +70,7 @@ class Results(models.Model):
     @property
     def thumbnail_preview(self):
         if self.photo:
-            _thumbnail = get_thumbnail(self.photo, '350x200', upscale=False, crop="center", quality=100)
+            _thumbnail = get_thumbnail(self.photo, '200x200', upscale=False, crop="center", quality=100)
             return format_html(
                 '<img src="{}" width="{}" height="{}">'.format(_thumbnail.url, _thumbnail.width, _thumbnail.height))
         return ""
