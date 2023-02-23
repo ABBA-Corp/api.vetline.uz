@@ -7,4 +7,5 @@ from .models import Faqs
 
 @admin.register(Faqs)
 class FaqsAdmin(OrderedModelAdmin):
-    list_display = ['faq_uz', 'answer_uz', 'move_up_down_links']
+    list_display = ['faq_uz', 'answer_uz', 'move_up_down_links', 'order']
+    ordering = ['order']
