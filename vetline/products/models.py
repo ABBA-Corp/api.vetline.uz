@@ -21,6 +21,9 @@ class Product(OrderedModel):
     description_en = models.TextField(_("Описание en"), null=True, blank=True)
     description_ru = models.TextField(_("Описание ru"), null=True, blank=True)
     is_top = models.BooleanField(_("На топе?"), default=False)
+    treatment_outcome_uz = models.TextField(blank=True, null=True)
+    treatment_outcome_ru = models.TextField(blank=True, null=True)
+    treatment_outcome_en = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = _("Продукт")
@@ -62,9 +65,6 @@ class Results(models.Model):
     subtitle_uz = models.CharField(_("Подзаголовок uz"), max_length=255)
     subtitle_ru = models.CharField(_("Подзаголовок ru"), max_length=255, null=True, blank=True)
     subtitle_en = models.CharField(_("Подзаголовок en"), max_length=255, null=True, blank=True)
-    treatment_outcome_uz = models.TextField(blank=True, null=True)
-    treatment_outcome_ru = models.TextField(blank=True, null=True)
-    treatment_outcome_en = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = _("Результат")
